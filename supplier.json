@@ -1,0 +1,11 @@
+{
+  "supplier": [
+    {
+      "id": 1,
+      "name": "Zé da manga",
+      "active": false,
+      "category": "Regional",
+      "contact": "(11)1111-1111"
+    }
+  ]
+}
