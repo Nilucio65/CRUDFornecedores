@@ -1,7 +1,7 @@
 import { SupplierService } from './../supplier.service';
 import { Supplier } from './supplier';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -17,7 +17,9 @@ export class FormComponent {
     this.formGroupSupplier = formBuilder.group({
       id: [''],
       name: [''],
-      email: ['']
+      contact: [''],
+      active: [],
+      category: ['',[Validators.required]]
     })
   }
 
@@ -68,5 +70,7 @@ export class FormComponent {
     this.formGroupSupplier.setValue(Suppliers)
     this.isEditing = true;
   }
+
+
 
 }

@@ -7,25 +7,22 @@
         <input type="email" formControlName="name" class="form-control" id="name" placeholder="name">
       </div>
 
-      <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-        <p>Active?</p>
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-        <label class="btn btn-outline-primary" for="btnradio1">Yes</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio2">No</label>
-      </div>
-
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Category</option>
-        <option value="1">Regional</option>
-        <option value="2">Nacional</option>
-        <option value="3">internacional</option>
+      <select class="form-select" formControlName="category" aria-label="Default select example">
+        <option value="Regional">Regional</option>
+        <option value="Nacional">Nacional</option>
+        <option value="internacional">internacional</option>
       </select>
 
       <div class="mb-3">
         <label for="contact" class="form-label">Contact:</label>
         <input type="email" formControlName="contact" class="form-control" id="contact" placeholder="(11)9999-9999">
+      </div>
+
+      <div class="form-check" >
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="active">
+        <label class="form-check-label" for="flexCheckDefault">
+          Active?
+        </label>
       </div>
 
       <div class="mb-3 d-flex justify-content-end">
@@ -40,15 +37,22 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Email</th>
+        <th scope="col">Activity</th>
+        <th scope="col">Category</th>
+        <th scope="col">contact</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let supplier of supplier">
         <th scope="row">{{supplier.id}}</th>
         <td>{{supplier.name}}</td>
-        <td>{{supplier.active}}</td>
-        <td>{{supplier.Category}}</td>
+        <ng-container *ngIf="supplier.active === true">
+          <td>Yes</td>
+        </ng-container>
+        <ng-container *ngIf="supplier.active === false">
+          <td>No</td>
+        </ng-container>
+        <td>{{supplier.category}}</td>
         <td>{{supplier.contact}}</td>
 
         <td class="d-flex justify-content-end">

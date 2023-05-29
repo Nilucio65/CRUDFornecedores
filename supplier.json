@@ -6,6 +6,13 @@
       "active": false,
       "category": "Regional",
       "contact": "(11)1111-1111"
+    },
+    {
+      "id": 3,
+      "name": "fred",
+      "contact": "11111111111",
+      "active": true,
+      "category": "internacional"
     }
   ]
 }
